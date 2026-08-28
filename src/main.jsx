@@ -80,58 +80,100 @@ const photoTileIndexes = new Set([0, 2, 5, 8, 11, 14, 17, 21, 23, 27, 30, 33, 37
 const pulmonologyTreatments = [
   {
     title: 'Asthma Treatment',
+    tag: 'Airway control',
+    description: 'Trigger review, inhaler technique, preventer planning, and follow-up for recurrent wheeze or breathlessness.',
+    accent: '#f26f35',
     src: 'https://images.pexels.com/photos/29702932/pexels-photo-29702932/free-photo-of-woman-using-asthma-inhaler-on-white-background.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'COPD & Emphysema',
+    tag: 'Long-term breathing',
+    description: 'Stepwise care for chronic breathlessness, cough, flare-ups, inhalers, and pulmonary rehabilitation needs.',
+    accent: '#0399aa',
     src: 'https://images.pexels.com/photos/5593681/pexels-photo-5593681.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Chronic Bronchitis',
+    tag: 'Cough pathway',
+    description: 'Evaluation for persistent phlegm, airway irritation, infection risk, and seasonal worsening patterns.',
+    accent: '#fb745f',
     src: 'https://images.pexels.com/photos/9882204/pexels-photo-9882204.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Pneumonia Care',
+    tag: 'Infection care',
+    description: 'Chest infection assessment, X-ray review, oxygen-risk checks, medicines, and recovery monitoring.',
+    accent: '#0f7891',
     src: 'https://images.pexels.com/photos/4225878/pexels-photo-4225878.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Tuberculosis Care',
+    tag: 'TB follow-up',
+    description: 'TB symptom review, report interpretation, treatment adherence guidance, and respiratory recovery tracking.',
+    accent: '#e75743',
     src: 'https://images.pexels.com/photos/7579832/pexels-photo-7579832.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Bronchiectasis',
+    tag: 'Airway damage',
+    description: 'Care for repeated infections, sputum, airway clearance, scan review, and flare prevention.',
+    accent: '#2aa7b8',
     src: 'https://images.pexels.com/photos/6129203/pexels-photo-6129203.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Chronic Cough',
+    tag: 'Symptom detective',
+    description: 'Structured work-up for cough triggers including allergy, reflux, asthma, infection, and medication history.',
+    accent: '#f26f35',
     src: 'https://images.pexels.com/photos/4975676/pexels-photo-4975676.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Sleep Breathing Disorders',
+    tag: 'Night breathing',
+    description: 'Screening for snoring, daytime sleepiness, oxygen dips, and sleep-related breathing disruption.',
+    accent: '#036c87',
     src: 'https://images.pexels.com/photos/6775183/pexels-photo-6775183.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Allergy Breathing Care',
+    tag: 'Seasonal triggers',
+    description: 'Allergy-linked cough, wheeze, rhinitis, dust exposure, and prevention plans for recurring symptoms.',
+    accent: '#fb745f',
     src: 'https://images.pexels.com/photos/4114713/pexels-photo-4114713.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Lung Nodules',
+    tag: 'Report review',
+    description: 'Calm interpretation of scan findings, risk context, follow-up intervals, and referral decisions.',
+    accent: '#0399aa',
     src: 'https://images.pexels.com/photos/4989186/pexels-photo-4989186.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Pulmonary Rehabilitation',
+    tag: 'Breathing strength',
+    description: 'Recovery support with breathing exercises, pacing, oxygen-risk awareness, and activity confidence.',
+    accent: '#e75743',
     src: 'https://images.pexels.com/photos/20100299/pexels-photo-20100299.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Smoking Cessation',
+    tag: 'Habit support',
+    description: 'Practical quitting support connected to cough, COPD risk, lung recovery, and relapse prevention.',
+    accent: '#0f7891',
     src: 'https://images.pexels.com/photos/17237100/pexels-photo-17237100/free-photo-of-close-up-of-person-smoking-cigarette-in-dark.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Post-COVID Breathlessness',
+    tag: 'Recovery checks',
+    description: 'Follow-up for lingering breathlessness, fatigue, cough, scan findings, and oxygen concerns after infection.',
+    accent: '#2aa7b8',
     src: 'https://images.pexels.com/photos/6749777/pexels-photo-6749777.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
   {
     title: 'Pleural Disease',
+    tag: 'Chest lining',
+    description: 'Assessment for pleural fluid, chest pain, breathlessness, imaging reports, and next-step planning.',
+    accent: '#f26f35',
     src: 'https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&dpr=1',
   },
 ];
@@ -469,44 +511,34 @@ function DifferenceSection() {
 }
 
 function TreatmentsSection() {
-  const sliderRef = useRef(null);
-
-  const slide = (direction) => {
-    const slider = sliderRef.current;
-    if (!slider) return;
-
-    slider.scrollBy({
-      left: direction * slider.clientWidth * 0.86,
-      behavior: 'smooth',
-    });
-  };
-
   return (
     <section className="treatments-section" id="treatments" aria-labelledby="treatments-title">
       <div className="treatments-atmosphere" aria-hidden="true"></div>
       <div className="treatments-inner">
         <div className="treatments-heading">
-          <p>Pulmonary care for airway, infection, sleep & breathing concerns</p>
+          <p>Airway, infection, sleep & breathing care</p>
           <h2 id="treatments-title">Pulmonology Treatments</h2>
-          <span aria-hidden="true"></span>
+          <span>
+            Scan the main respiratory services quickly. Each card opens with enough context to understand what the visit is for.
+          </span>
         </div>
 
-        <div className="treatment-slider">
-          <button className="slider-control slider-control-prev" type="button" aria-label="Previous treatments" onClick={() => slide(-1)}>
-            <ArrowLeft size={24} strokeWidth={2.2} />
-          </button>
-          <div className="treatments-rail" ref={sliderRef}>
-            {pulmonologyTreatments.map((treatment) => (
-              <article className="treatment-card" key={treatment.title}>
-                <img src={treatment.src} alt="" loading="lazy" />
-                <div className="treatment-card-shade" aria-hidden="true"></div>
+        <div className="treatments-grid" aria-label="Pulmonology treatments">
+          {pulmonologyTreatments.map((treatment, index) => (
+            <article
+              className={`treatment-card ${index < 2 ? 'treatment-card-featured' : ''}`}
+              key={treatment.title}
+              style={{ '--treatment-accent': treatment.accent }}
+            >
+              <span className="treatment-number">{String(index + 1).padStart(2, '0')}</span>
+              <img src={treatment.src} alt="" loading={index < 6 ? 'eager' : 'lazy'} />
+              <div className="treatment-card-copy">
+                <span>{treatment.tag}</span>
                 <h3>{treatment.title}</h3>
-              </article>
-            ))}
-          </div>
-          <button className="slider-control slider-control-next" type="button" aria-label="Next treatments" onClick={() => slide(1)}>
-            <ArrowRight size={24} strokeWidth={2.2} />
-          </button>
+                <p>{treatment.description}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -571,6 +603,7 @@ function TestimonialsSection() {
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper) return undefined;
+    if (window.matchMedia('(max-width: 760px)').matches) return undefined;
 
     const slides = [...wrapper.children];
 
@@ -705,89 +738,302 @@ function TestimonialsSection() {
 }
 
 function PressSection() {
-  const sectionRef = useRef(null);
-  const [progress, setProgress] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const total = pressClippings.length;
+  const pressLoop = [...pressClippings, ...pressClippings];
 
   useEffect(() => {
-    let frameId = 0;
+    if (isPaused || total < 2) return undefined;
 
-    const updateProgress = () => {
-      const section = sectionRef.current;
-      if (!section) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % total);
+    }, 1200);
 
-      const rect = section.getBoundingClientRect();
-      const scrollable = Math.max(1, rect.height - window.innerHeight);
-      const nextProgress = Math.min(1, Math.max(0, -rect.top / scrollable));
-      setProgress(nextProgress);
-    };
-
-    const onScroll = () => {
-      cancelAnimationFrame(frameId);
-      frameId = requestAnimationFrame(updateProgress);
-    };
-
-    updateProgress();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-
-    return () => {
-      cancelAnimationFrame(frameId);
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    };
-  }, []);
-
-  const activeIndex = Math.min(pressClippings.length - 1, Math.floor(progress * (pressClippings.length - 1)));
-  const activeClipping = pressClippings[activeIndex];
-  const railShift = -progress * 58;
+    return () => clearInterval(timer);
+  }, [isPaused, total]);
 
   return (
-    <section className="press-track" id="press" ref={sectionRef} aria-labelledby="press-title">
-      <div className="press-stage">
-        <div className="press-copy">
-          <p>In the news</p>
-          <h2 id="press-title">Ranchi has seen his work in print.</h2>
-          <span>
-            Newspaper clippings, health camp coverage, and respiratory awareness notes from Dr. Apoorv Sinha&apos;s public work.
-          </span>
-          <div className="press-now" aria-live="polite">
-            <small>Now reading</small>
-            <strong>{activeClipping.title}</strong>
-            <em>{activeClipping.source}</em>
+    <section
+      className="medical-highlights-section"
+      id="press"
+      aria-labelledby="press-title"
+    >
+      <img className="medical-latest-motif medical-latest-lung" src={lungsUrl} alt="" aria-hidden="true" />
+      <img className="medical-latest-motif medical-latest-doctor" src={doctorUrl} alt="" aria-hidden="true" />
+
+      <div className="medical-whats-shell">
+        <header className="medical-whats-header">
+          <h2>
+            In The News
+            <span>Dr. Apoorv Sinha</span>
+          </h2>
+          <a className="medical-all-link" href="/gallery">
+            View All Coverage
+          </a>
+        </header>
+      </div>
+
+      <div
+        className="medical-highlights-inner"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onFocusCapture={() => setIsPaused(true)}
+        onBlurCapture={() => setIsPaused(false)}
+      >
+        <div className="medical-image-column" aria-hidden="true">
+          <div className="medical-image-deck">
+            {pressClippings.map((item, index) => {
+              const depth = (index - activeIndex + total) % total;
+
+              return (
+                <figure
+                  className="medical-image-card"
+                  key={item.title}
+                  style={{
+                    '--deck-depth': depth,
+                    '--clip-position': item.position,
+                    '--clip-zoom': item.zoom,
+                    zIndex: total - depth,
+                  }}
+                  onMouseEnter={() => {
+                    setActiveIndex(index);
+                    setIsPaused(true);
+                  }}
+                  onClick={() => {
+                    window.location.href = '/gallery';
+                  }}
+                >
+                  <img src={pressClippingsUrl} alt="" />
+                </figure>
+              );
+            })}
           </div>
         </div>
 
-        <div className="press-window">
-          <div className="press-rail" style={{ transform: `translate3d(${railShift}vw, 0, 0)` }}>
-            {pressClippings.map((clipping, index) => (
-              <figure
-                className={`press-card press-card-${clipping.size} ${index === activeIndex ? 'is-active' : ''}`}
-                key={clipping.title}
-                style={{
-                  '--clip-position': clipping.position,
-                  '--clip-zoom': clipping.zoom,
-                  '--clip-tilt': `${index % 2 === 0 ? -1 : 1}deg`,
-                }}
-              >
-                <img src={pressClippingsUrl} alt="" loading={index < 2 ? 'eager' : 'lazy'} />
-                <figcaption>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <strong>{clipping.title}</strong>
-                </figcaption>
-              </figure>
+        <div className="medical-latest-content">
+          <header className="medical-latest-heading">
+            <span className="medical-heading-emblem" aria-hidden="true">
+              <NewspaperIcon />
+            </span>
+            <div>
+              <p>THE LATEST</p>
+              <h2 id="press-title">HIGHLIGHTS</h2>
+            </div>
+          </header>
+
+          <nav className="medical-headline-list" aria-label="Press coverage highlights">
+            {pressClippings.map((item, index) => {
+              const isActive = index === activeIndex;
+
+              return (
+                <a
+                  className="medical-headline-link"
+                  href="/gallery"
+                  key={item.title}
+                  aria-current={isActive ? 'true' : undefined}
+                  data-active={isActive ? 'true' : 'false'}
+                  data-paused={isPaused ? 'true' : 'false'}
+                  onMouseEnter={() => {
+                    setActiveIndex(index);
+                    setIsPaused(true);
+                  }}
+                  onFocus={() => {
+                    setActiveIndex(index);
+                    setIsPaused(true);
+                  }}
+                >
+                  <span>{item.title}</span>
+                  {isActive && <span className="medical-headline-progress" aria-hidden="true" />}
+                </a>
+              );
+            })}
+          </nav>
+
+          <a className="medical-news-button" href="/gallery">
+            VIEW FULL GALLERY
+          </a>
+        </div>
+      </div>
+
+      <div className="medical-support-grid" aria-label="Press and public respiratory updates">
+        <article className="medical-support-card medical-camp-card">
+          <div className="medical-card-head">
+            <span className="medical-card-icon"><CalendarCheck size={38} strokeWidth={1.9} /></span>
+            <h3>Health Camp Notes</h3>
+          </div>
+          <div className="medical-events-list">
+            {pressClippings.slice(0, 3).map((item, index) => (
+              <a className="medical-event-item" href="/gallery" key={item.title}>
+                <span className="medical-event-date">
+                  <small>{index === 0 ? 'Dec' : index === 1 ? 'Mar' : 'Asthma'}</small>
+                  <strong>{index === 2 ? 'Aw' : String(index + 1).padStart(2, '0')}</strong>
+                  <small>{index === 2 ? 'areness' : 'Press'}</small>
+                </span>
+                <span className="medical-event-copy">
+                  <strong>{item.title}</strong>
+                  <em>{item.source}</em>
+                  <small>Open coverage archive</small>
+                </span>
+              </a>
             ))}
           </div>
-        </div>
+          <a className="medical-outline-button" href="/gallery">View All Camps</a>
+        </article>
 
-        <div className="press-ticker" aria-hidden="true">
-          Press clippings / Community camps / Respiratory awareness / Ranchi coverage
-        </div>
+        <article className="medical-support-card medical-notice-card">
+          <div className="medical-card-head">
+            <span className="medical-card-icon"><Stethoscope size={42} strokeWidth={1.85} /></span>
+            <h3>Respiratory Awareness</h3>
+          </div>
+          <div className="medical-notice-list">
+            {[
+              'Correct asthma treatment protects long-term breathing.',
+              'Patients should not ignore chronic cough or breathlessness.',
+              'Camp reports show active respiratory screening in Ranchi.',
+            ].map((item, index) => (
+              <a className="medical-notice-item" href="/gallery" key={item}>
+                <span className="medical-notice-date">
+                  <strong>{String(index + 1).padStart(2, '0')}</strong>
+                  <small>Note</small>
+                </span>
+                <span className="medical-notice-copy">
+                  <em>Pulmonology</em>
+                  <strong>{item}</strong>
+                  <small>Read related clipping</small>
+                </span>
+              </a>
+            ))}
+          </div>
+          <a className="medical-text-button" href="/gallery">View Awareness Notes</a>
+        </article>
+
+        <article className="medical-support-card medical-archive-card">
+          <div className="medical-card-head">
+            <span className="medical-card-icon"><ClipboardCheck size={40} strokeWidth={1.85} /></span>
+            <h3>Press Archive</h3>
+          </div>
+          <div className="medical-archive-feature">
+            <div className="medical-archive-track" aria-label="Newspaper archive preview">
+              {pressLoop.map((item, index) => (
+                <a
+                  className="medical-archive-slide"
+                  href="/gallery"
+                  key={`${item.title}-${index}`}
+                  aria-hidden={index >= pressClippings.length ? 'true' : undefined}
+                  tabIndex={index >= pressClippings.length ? -1 : undefined}
+                  style={{
+                    '--clip-position': item.position,
+                    '--clip-zoom': item.zoom,
+                  }}
+                >
+                  <span className="medical-archive-cover">
+                    <img src={pressClippingsUrl} alt="" />
+                  </span>
+                  <strong>{item.title}</strong>
+                  <span>View clipping</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <a className="medical-subscribe-strip" href="/gallery">
+            <img src={lungsUrl} alt="" aria-hidden="true" />
+            <span>Newspaper coverage, clinic reports, and community respiratory work.</span>
+          </a>
+        </article>
       </div>
     </section>
   );
 }
 
-function App() {
+function NewspaperIcon() {
+  return (
+    <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+      <rect x="10" y="13" width="44" height="38" rx="4" />
+      <path d="M18 23h16M18 31h28M18 39h20" />
+      <path d="M39 22h7v7h-7z" />
+    </svg>
+  );
+}
+
+function GalleryPage() {
+  return (
+    <main className="gallery-page">
+      <header className="gallery-header">
+        <Logo />
+        <a className="press-gallery-link" href="/">
+          <ArrowLeft size={20} strokeWidth={2.2} />
+          <span>Back to site</span>
+        </a>
+      </header>
+
+      <section className="gallery-hero" aria-labelledby="gallery-title">
+        <p>Press archive</p>
+        <h1 id="gallery-title">Newspaper coverage & clinic moments.</h1>
+        <span>Replace these cropped placeholders with individual newspaper images whenever the final scans are ready.</span>
+      </section>
+
+      <section className="gallery-grid" aria-label="Newspaper gallery">
+        {pressClippings.map((clipping, index) => (
+          <figure
+            className={`gallery-card gallery-card-${clipping.size}`}
+            key={clipping.title}
+            style={{
+              '--clip-position': clipping.position,
+              '--clip-zoom': clipping.zoom,
+            }}
+          >
+            <img src={pressClippingsUrl} alt="" />
+            <figcaption>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{clipping.title}</strong>
+              <em>{clipping.source}</em>
+            </figcaption>
+          </figure>
+        ))}
+      </section>
+    </main>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="site-footer" id="clinic">
+      <div className="footer-inner">
+        <div className="footer-brand">
+          <Logo />
+          <p>
+            Pulmonology consultation for asthma, COPD, TB, chronic cough, allergies, breathlessness, and sleep-related breathing concerns in Ranchi.
+          </p>
+        </div>
+
+        <div className="footer-links" aria-label="Footer navigation">
+          <a href="#about">About doctor</a>
+          <a href="#treatments">Treatments</a>
+          <a href="#press">News coverage</a>
+          <a href="/gallery">Gallery</a>
+        </div>
+
+        <div className="footer-actions">
+          <a className="footer-cta" href="#appointment">
+            <CalendarCheck size={19} strokeWidth={2.2} />
+            <span>Book appointment</span>
+          </a>
+          <a className="footer-map" href="https://www.google.com/maps/search/?api=1&query=TB%2C%20Allergy%20%26%20Chest%20Clinic%20Bariatu%20Ranchi" target="_blank" rel="noreferrer">
+            <MapPin size={18} strokeWidth={2.2} />
+            <span>Bariatu, Ranchi</span>
+          </a>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <span>Dr. Apoorv Sinha</span>
+        <span>Pulmonologist · Respiratory Medicine</span>
+      </div>
+    </footer>
+  );
+}
+
+function MainPage() {
   return (
     <>
       <main className="page-shell">
@@ -873,8 +1119,13 @@ function App() {
       <WhyChooseSection />
       <TestimonialsSection />
       <PressSection />
+      <SiteFooter />
     </>
   );
+}
+
+function App() {
+  return window.location.pathname.startsWith('/gallery') ? <GalleryPage /> : <MainPage />;
 }
 
 createRoot(document.getElementById('root')).render(<App />);
