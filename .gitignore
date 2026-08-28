@@ -1,0 +1,61 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+.next/
+out/
+build/
+
+# Local env files
+*.local
+.env
+.env.local
+.env.*.local
+
+# Editor configs
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing (Playwright / CDP)
+.chrome-cdp/
+.chrome-cdp-resize/
+.chrome-cdp-verify/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Test screenshots, comparisons and diffs in the root
+difference-*.png
+verify-*.png
+desktop-hero.png
+mobile-hero.png
+mobile-reference-size.png
+playwright-desktop-hero.png
+playwright-mobile-hero.png
+playwright-tablet-hero.png
+
+# Vercel
+.vercel/
