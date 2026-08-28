@@ -5133,6 +5133,8 @@ a {
 
   .difference-copy {
     order: 1;
+    position: relative;
+    z-index: 3;
     width: 100%;
     max-width: none;
     min-height: 0;
@@ -5238,10 +5240,14 @@ a {
 
   .mosaic-stage {
     order: 2;
+    position: relative;
+    z-index: 1;
     align-self: end;
     width: min(228px, 67vw);
     margin: 0 auto;
     opacity: 1;
+    transform: translateY(calc(var(--hours-progress, 0) * 34px));
+    transition: transform 120ms linear;
   }
 
   .mosaic-grid {
@@ -5407,6 +5413,7 @@ a {
 
   .mosaic-stage {
     width: min(208px, 63vw);
+    transform: translateY(calc(var(--hours-progress, 0) * 42px));
   }
 
   .testimonial-swiper {
@@ -5418,6 +5425,44 @@ a {
     flex-basis: 84vw;
     width: 84vw !important;
     min-height: 468px;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 720px) {
+  .difference-stage {
+    padding-top: 84px;
+  }
+
+  .difference-layout {
+    grid-template-rows: minmax(246px, 1fr) minmax(132px, 21svh);
+    gap: 18px;
+  }
+
+  .hours-card {
+    width: min(300px, calc(100vw - 56px));
+    padding: 9px 12px;
+  }
+
+  .hours-card-top {
+    margin-bottom: 6px;
+  }
+
+  .hours-script {
+    font-size: 12px;
+  }
+
+  .hours-card h2 {
+    font-size: 22px;
+  }
+
+  .hours-row {
+    padding: 5px 0;
+    font-size: 12px;
+  }
+
+  .mosaic-stage {
+    width: min(176px, 52vw);
+    transform: translateY(calc(var(--hours-progress, 0) * 58px));
   }
 }
 
