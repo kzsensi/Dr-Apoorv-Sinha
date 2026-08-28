@@ -20,9 +20,22 @@ import {
 import lungsUrl from '../images/lungs.png';
 import doctorUrl from '../images/dr.png';
 import doctorTwoUrl from '../images/dr2.png';
-import pressClippingsUrl from '../images/press-clippings.png';
+import newsOneUrl from '../images/news1.webp';
+import newsTwoUrl from '../images/news2.avif';
+import newsThreeUrl from '../images/news3.avif';
+import newsFourUrl from '../images/news4.avif';
+import newsFiveUrl from '../images/news5.avif';
+import newsSixUrl from '../images/news6.jpg';
+import newsSevenUrl from '../images/news7.avif';
+import newsEightUrl from '../images/news8.avif';
+import newsNineUrl from '../images/news9.avif';
+import newsTenUrl from '../images/news10.avif';
+import newsElevenUrl from '../images/news11.webp';
 import whyLungsUrl from '../images/why-lungs-bg.png';
 import './styles.css';
+
+const clinicAddress = 'Ground Floor, Health Point Hospital Building, Near RIMS, Bariatu, Ranchi-834009, Jharkhand';
+const clinicSpecialization = 'Pulmonologist, Tuberculous and Chest Diseases Specialist';
 
 const beforeScrollPhoto = {
   src: doctorTwoUrl,
@@ -212,57 +225,145 @@ const whyChooseReasons = [
 ];
 
 const clinicHours = [
-  ['Monday', '10:00 AM - 4:00 PM'],
-  ['Tuesday', '10:00 AM - 4:00 PM'],
-  ['Wednesday', '10:00 AM - 4:00 PM'],
-  ['Thursday', '10:00 AM - 4:00 PM'],
-  ['Friday', '10:00 AM - 4:00 PM'],
-  ['Saturday', '10:00 AM - 4:00 PM'],
+  ['Monday', '12:00 pm - 4:00 pm'],
+  ['Tuesday', '12:00 pm - 4:00 pm'],
+  ['Wednesday', '12:00 pm - 4:00 pm'],
+  ['Thursday', '12:00 pm - 4:00 pm'],
+  ['Friday', '12:00 pm - 4:00 pm'],
+  ['Saturday', '12:00 pm - 4:00 pm'],
   ['Sunday', 'Closed'],
 ];
 
 const pressClippings = [
   {
-    title: 'Free health camp announcement',
+    title: 'Health camp covered by local press',
     source: 'Ranchi community coverage',
-    position: '3% 18%',
-    zoom: 1.58,
+    src: newsElevenUrl,
+    position: '50% 50%',
+    zoom: 1,
     size: 'tall',
+    fit: 'cover',
   },
   {
-    title: 'Free check-up camp coverage',
-    source: 'Local newspaper report',
-    position: '47% 29%',
-    zoom: 1.88,
+    title: 'Free respiratory check-up report',
+    source: 'Local newspaper clipping',
+    src: newsOneUrl,
+    position: '50% 50%',
+    zoom: 1,
     size: 'wide',
+    fit: 'cover',
   },
   {
-    title: 'Respiratory awareness quote',
-    source: 'Asthma public advice',
-    position: '90% 18%',
-    zoom: 1.72,
+    title: 'Asthma and breathing awareness',
+    source: 'Pulmonology public advice',
+    src: newsTwoUrl,
+    position: '50% 50%',
+    zoom: 1,
     size: 'tall',
+    fit: 'cover',
   },
   {
-    title: 'Patients examined at camp',
+    title: 'Community chest clinic update',
     source: 'Clinic outreach story',
-    position: '50% 57%',
-    zoom: 1.78,
+    src: newsThreeUrl,
+    position: '50% 50%',
+    zoom: 1,
     size: 'wide',
+    fit: 'cover',
   },
   {
     title: 'Correct treatment protects lungs',
     source: 'Pulmonology feature',
-    position: '86% 67%',
-    zoom: 1.9,
+    src: newsFourUrl,
+    position: '50% 50%',
+    zoom: 1,
     size: 'feature',
+    fit: 'cover',
   },
   {
-    title: 'Health service camp notice',
-    source: 'Public service clipping',
-    position: '38% 94%',
-    zoom: 2.05,
+    title: 'Public respiratory service notice',
+    source: 'Press archive',
+    src: newsFiveUrl,
+    position: '50% 50%',
+    zoom: 1,
     size: 'strip',
+    fit: 'cover',
+  },
+];
+
+const galleryItems = [
+  ...pressClippings,
+  {
+    title: 'Clinic newspaper feature',
+    source: 'Press archive',
+    src: newsSixUrl,
+    position: '50% 50%',
+    zoom: 1,
+    size: 'wide',
+    fit: 'cover',
+  },
+  {
+    title: 'Health camp news clipping',
+    source: 'Ranchi press',
+    src: newsSevenUrl,
+    position: '50% 50%',
+    zoom: 1,
+    size: 'tall',
+    fit: 'cover',
+  },
+  {
+    title: 'Respiratory care in print',
+    source: 'Local coverage',
+    src: newsEightUrl,
+    position: '50% 50%',
+    zoom: 1,
+    size: 'feature',
+    fit: 'cover',
+  },
+  {
+    title: 'Pulmonology awareness article',
+    source: 'Press clipping',
+    src: newsNineUrl,
+    position: '50% 50%',
+    zoom: 1,
+    size: 'strip',
+    fit: 'cover',
+  },
+  {
+    title: 'Clinic work highlighted',
+    source: 'Newspaper archive',
+    src: newsTenUrl,
+    position: '50% 50%',
+    zoom: 1,
+    size: 'wide',
+    fit: 'cover',
+  },
+  {
+    title: 'Dr. Apoorv Sinha portrait',
+    source: 'Pulmonologist',
+    src: doctorUrl,
+    position: '50% 18%',
+    zoom: 1,
+    size: 'tall',
+    fit: 'contain',
+  },
+  {
+    title: 'Consultation portrait',
+    source: 'Doctor profile',
+    src: doctorTwoUrl,
+    position: '50% 18%',
+    zoom: 1,
+    size: 'tall',
+    fit: 'contain',
+  },
+  {
+    title: 'Lung anatomy visual',
+    source: 'Respiratory medicine',
+    src: lungsUrl,
+    position: '50% 50%',
+    zoom: 1,
+    size: 'feature',
+    fit: 'contain',
   },
 ];
 
@@ -471,7 +572,7 @@ function DifferenceSection() {
                     Dr. Apoorv Sinha is an MBBS, MD pulmonologist practicing in Bariatu, Ranchi, with a focus on asthma, COPD, TB, allergy, cough, breathlessness, and sleep-related breathing concerns.
                   </p>
                   <p>
-                    Public clinic listings note his MD in Pulmonary Medicine from SRMS IMS, Bareilly, and describe his TB, Allergy & Chest Clinic as a respiratory care setup near RIMS/Medical Chowk and Bariatu.
+                    His listed specialization is {clinicSpecialization.toLowerCase()}, and the clinic is at {clinicAddress}.
                   </p>
                   <p>
                     Patients often look for him when they need specialist chest care, clear explanations, pulmonary testing guidance, and follow-up for recurring breathing symptoms.
@@ -603,7 +704,7 @@ function TestimonialsSection() {
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper) return undefined;
-    if (window.matchMedia('(max-width: 760px)').matches) return undefined;
+    if (window.matchMedia('(max-width: 980px)').matches) return undefined;
 
     const slides = [...wrapper.children];
 
@@ -794,6 +895,7 @@ function PressSection() {
                     '--deck-depth': depth,
                     '--clip-position': item.position,
                     '--clip-zoom': item.zoom,
+                    '--image-fit': item.fit,
                     zIndex: total - depth,
                   }}
                   onMouseEnter={() => {
@@ -804,7 +906,7 @@ function PressSection() {
                     window.location.href = '/gallery';
                   }}
                 >
-                  <img src={pressClippingsUrl} alt="" />
+                  <img src={item.src} alt="" />
                 </figure>
               );
             })}
@@ -925,10 +1027,11 @@ function PressSection() {
                   style={{
                     '--clip-position': item.position,
                     '--clip-zoom': item.zoom,
+                    '--image-fit': item.fit,
                   }}
                 >
                   <span className="medical-archive-cover">
-                    <img src={pressClippingsUrl} alt="" />
+                    <img src={item.src} alt="" />
                   </span>
                   <strong>{item.title}</strong>
                   <span>View clipping</span>
@@ -958,41 +1061,63 @@ function NewspaperIcon() {
 
 function GalleryPage() {
   return (
-    <main className="gallery-page">
-      <header className="gallery-header">
-        <Logo />
-        <a className="press-gallery-link" href="/">
-          <ArrowLeft size={20} strokeWidth={2.2} />
-          <span>Back to site</span>
-        </a>
-      </header>
+    <>
+      <main className="gallery-page">
+        <header className="gallery-header">
+          <Logo />
+          <a className="press-gallery-link" href="/">
+            <ArrowLeft size={20} strokeWidth={2.2} />
+            <span>Back to site</span>
+          </a>
+        </header>
 
-      <section className="gallery-hero" aria-labelledby="gallery-title">
-        <p>Press archive</p>
-        <h1 id="gallery-title">Newspaper coverage & clinic moments.</h1>
-        <span>Replace these cropped placeholders with individual newspaper images whenever the final scans are ready.</span>
-      </section>
+        <section className="gallery-hero" aria-labelledby="gallery-title">
+          <p>Gallery</p>
+          <h1 id="gallery-title">Newspaper coverage, clinic moments & respiratory visuals.</h1>
+          <span>
+            A visual archive of Dr. Apoorv Sinha&apos;s press coverage, profile images, and pulmonology visuals.
+          </span>
+        </section>
 
-      <section className="gallery-grid" aria-label="Newspaper gallery">
-        {pressClippings.map((clipping, index) => (
-          <figure
-            className={`gallery-card gallery-card-${clipping.size}`}
-            key={clipping.title}
-            style={{
-              '--clip-position': clipping.position,
-              '--clip-zoom': clipping.zoom,
-            }}
-          >
-            <img src={pressClippingsUrl} alt="" />
-            <figcaption>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <strong>{clipping.title}</strong>
-              <em>{clipping.source}</em>
-            </figcaption>
-          </figure>
-        ))}
-      </section>
-    </main>
+        <section className="gallery-clinic-strip" aria-label="Clinic details">
+          <div>
+            <span>Address</span>
+            <strong>{clinicAddress}</strong>
+          </div>
+          <div>
+            <span>Business hours</span>
+            <strong>Monday-Saturday, 12:00 pm - 4:00 pm</strong>
+            <em>Sunday closed</em>
+          </div>
+          <div>
+            <span>Specialization</span>
+            <strong>{clinicSpecialization}</strong>
+          </div>
+        </section>
+
+        <section className="gallery-grid" aria-label="Clinic and newspaper gallery">
+          {galleryItems.map((clipping, index) => (
+            <figure
+              className={`gallery-card gallery-card-${clipping.size}`}
+              key={clipping.title}
+              style={{
+                '--clip-position': clipping.position,
+                '--clip-zoom': clipping.zoom,
+                '--image-fit': clipping.fit,
+              }}
+            >
+              <img src={clipping.src} alt={clipping.title} loading={index < 5 ? 'eager' : 'lazy'} />
+              <figcaption>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <strong>{clipping.title}</strong>
+                <em>{clipping.source}</em>
+              </figcaption>
+            </figure>
+          ))}
+        </section>
+      </main>
+      <SiteFooter />
+    </>
   );
 }
 
@@ -1015,19 +1140,34 @@ function SiteFooter() {
         </div>
 
         <div className="footer-actions">
+          <div className="footer-clinic-card">
+            <span>Clinic address</span>
+            <strong>{clinicAddress}</strong>
+            <em>{clinicSpecialization}</em>
+            <dl>
+              <div>
+                <dt>Mon-Sat</dt>
+                <dd>12:00 pm - 4:00 pm</dd>
+              </div>
+              <div>
+                <dt>Sunday</dt>
+                <dd>Closed</dd>
+              </div>
+            </dl>
+          </div>
           <a className="footer-cta" href="#appointment">
             <CalendarCheck size={19} strokeWidth={2.2} />
             <span>Book appointment</span>
           </a>
-          <a className="footer-map" href="https://www.google.com/maps/search/?api=1&query=TB%2C%20Allergy%20%26%20Chest%20Clinic%20Bariatu%20Ranchi" target="_blank" rel="noreferrer">
+          <a className="footer-map" href="https://www.google.com/maps/search/?api=1&query=Ground%20Floor%2C%20Health%20Point%20Hospital%20Building%2C%20Near%20RIMS%2C%20Bariatu%2C%20Ranchi-834009%2C%20Jharkhand" target="_blank" rel="noreferrer">
             <MapPin size={18} strokeWidth={2.2} />
-            <span>Bariatu, Ranchi</span>
+            <span>Get directions</span>
           </a>
         </div>
       </div>
       <div className="footer-bottom">
         <span>Dr. Apoorv Sinha</span>
-        <span>Pulmonologist · Respiratory Medicine</span>
+        <span>{clinicSpecialization}</span>
       </div>
     </footer>
   );
